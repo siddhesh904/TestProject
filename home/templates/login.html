@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register Now
+{% endblock %}
+
+
+{% block body %}
+<div class="container mx-auto col-6">
+    <form method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if messages %}
+        {{message.tags}}
+        {% for i in messages %}
+        <div class="alert alert-primary" role="alert">
+            {{i}}
+        </div>
+        {% endfor %}
+        
+        {% endif %}
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">username</label>
+            <input type="text"  required name='username' class="form-control">
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password"  required name = 'password' class="form-control" >
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

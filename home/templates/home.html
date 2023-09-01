@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+view Data
+{% endblock %}
+
+{% block body %}
+
+
+
+{% if book_data %}
+
+{% for book in book_data.message %}
+
+
+
+
+<div class="card" style="width: 18rem;">
+    <img src="" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{book.title|slice:":50"}}</h5>
+        <p class="card-text">{{book.language_code}}</p>
+        <a href="#" class="btn btn-primary">add Image</a>
+    </div>
+</div>
+    <!-- <strong>Book ID:</strong> {{ book.bookID }}<br>
+    <strong>title:</strong>{{ book.title }}<br>
+    <strong>language code:</strong> {{ book.language_code }}<br> -->
+    {% endfor %}
+
+
+{% else %}
+<p>No API data available.</p>
+{% endif %}
+{% endblock %}
